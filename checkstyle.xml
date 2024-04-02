@@ -14,17 +14,18 @@
         <module name="AvoidStarImport"/>
         <module name="ConstantName"/>
         <module name="EmptyBlock"/>
+        <module name="ArrayTrailingComma"/>
+        <module name="AvoidDoubleBraceInitialization"/>
+        <module name="AvoidInlineConditionals"/>
+        <module name="AvoidNoArgumentSuperConstructorCall"/>
+        <module name="CovariantEquals"/>
+        <module name="DeclarationOrder"/>
+        <module name="DefaultComesLast"/>
+        <module name="EmptyStatement"/>
     </module>
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
 
-    <module name="AvoidDoubleBraceInitialization"/>
-    <module name="AvoidInlineConditionals"/>
-    <module name="AvoidNoArgumentSuperConstructorCall"/>
-    <module name="CovariantEquals"/>
-    <module name="DeclarationOrder"/>
-    <module name="DefaultComesLast"/>
-    <module name="EmptyStatement"/>
 
 </module>
