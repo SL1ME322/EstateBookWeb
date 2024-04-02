@@ -2,10 +2,10 @@ name: SpringBoot Check Style
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   checkstyle:
     name: Checkstyle Check
