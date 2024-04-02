@@ -18,7 +18,7 @@
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
-    <module name="ArrayTrailingComma"/>
+
     <module name="AvoidDoubleBraceInitialization"/>
     <module name="AvoidInlineConditionals"/>
     <module name="AvoidNoArgumentSuperConstructorCall"/>
