@@ -5,8 +5,10 @@
     <property name="charset" value="UTF-8"/>
     <property name="fileExtensions" value="java, properties, xml"/>
     <module name="JavadocPackage"/>
-
-
+    <module name="EmptyBlock">
+        <property name="severity" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+        <property name="max" value="100"/>
+    </module>
     <module name="LineLength">
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
         <property name="max" value="100"/>
@@ -14,9 +16,11 @@
     <module name="TreeWalker">
         <module name="AvoidStarImport"/>
         <module name="ConstantName"/>
-
+        <module name="EmptyBlock"/>
     </module>
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
+
+
 </module>
