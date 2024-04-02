@@ -12,7 +12,7 @@
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
-    <module name="ParameterName"/>
+
     <module name="EmptyBlock">
         <property name="severity" value="warning"/>
     </module>
