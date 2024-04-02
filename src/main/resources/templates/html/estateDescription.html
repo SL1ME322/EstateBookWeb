@@ -1,0 +1,164 @@
+<div th:fragment="estateDescription" class="bg-white border-2 w-full   h-[35.4rem]  ">
+    <div class="w-full poppins-medium flex flex-col p-4 h-full  ">
+        <div class="px-2">
+            <div class="flex justify-between   ">
+                <p class="font-bold text-[1.6rem]">Крутая хата</p>
+                <p class="text-yellow-400 font-bold  text-[1.6rem]">10000000 Р</p>
+            </div>
+            <div class="flex items-center space-x-0.5 justify-between mb-3   ">
+                <div>
+                    <p> </p>
+                </div>
+                <div class=" flex flex-row text-gray-400">
+                    <p>
+                        306 240 ₽/м²
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="space-y-2 px-2  ">
+            <div class="flex items-center space-x-0.5 justify-between    ">
+                <div class="flex items-center  flex-row flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mt-2  after:mx-2 after:border-dotted after:border-b">
+                    <img src="img/metro.png" class="h-4 w-6 mr-1 relative rounded-t-lg">
+                    <p>Нахимовский проспект</p>
+                </div>
+
+                <div class=" flex flex-row ">
+                    <p>
+                        12 мин.
+                    </p>
+
+                    <img class="h-6 w-4 ml-1" src="img/man.png">
+                </div>
+
+            </div>
+
+            <div class="flex items-center space-x-0.5 justify-between   ">
+                <div class="flex items-center  flex-row flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mt-2  after:mx-2 after:border-dotted after:border-b">
+
+                    <p>Проект</p>
+                </div>
+
+                <div class=" flex flex-row">
+                    <p>
+                        Бизнес-квартал
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="flex items-center space-x-0.5 justify-between   ">
+                <div class="flex items-center  flex-row flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mt-2  after:mx-2 after:border-dotted after:border-b">
+
+                    <p>Этаж</p>
+                </div>
+
+                <div class=" flex flex-row">
+                    <p>
+                        5
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="flex items-center space-x-0.5 justify-between   ">
+                <div class="flex items-center  flex-row flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mt-2  after:mx-2 after:border-dotted after:border-b">
+
+                    <p>Выдача ключей</p>
+                </div>
+
+                <div class=" flex flex-row">
+                    <p>
+                        III квартал 2026
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="flex items-center space-x-0.5 justify-between    ">
+                <div class="flex items-center  flex-row flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mt-2  after:mx-2 after:border-dotted after:border-b">
+
+                    <p>МАП</p>
+                </div>
+
+                <div class=" flex flex-row">
+                    <p>
+                        97 265 ₽
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="mt-6 mx-4">
+            <div class="flex flex-col space-y-4  ">
+                <div class="flex w-full bg-cyan-400 h-12 rounded-full items-center ">
+                    <div class="mx-auto flex space-x-2">
+                        <div>
+                            <img th:src="@{img/message.png}" class="w-6 h-6">
+                        </div>
+                        <button onclick="window.location.href='chat.php'">
+                            Написать сообщение
+                        </button>
+                    </div>
+
+                </div>
+                <div class="flex  w-full  bg-emerald-500 h-12 rounded-full items-center">
+
+                    <div class="mx-auto flex space-x-2">
+                        <div>
+                            <img src="img/phone.png" class="w-6 h-6">
+                        </div>
+                        <button>
+                            Позвонить
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <hr class="mt-auto mb-4 border-t-2 border-gray-300">
+        <div class="  flex-col bg-gray ">
+            <div class="flex flex-row items-center  ">
+                <div class="relative cursor-pointer ">
+                    <img class="w-32 h-32 rounded-full" src="img/ыыы.jpg">
+                    <div class="w-12 h-6 rounded-full bg-yellow-100 flex flex-row absolute bottom-0   right-0">
+                        <img src="img/star.png" class="h-7/12 w-1/2  ">
+                        <p>
+                            5.0
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="space-y-3 ml-4 mb-12">
+                    <p class="tracking-wide poppins-bold
+                     hover:text-sky-700 cursor-pointer text-2xl" >
+
+                    </p>
+                    <div class="flex flex-row items-center">
+                        <div class="mr-4 flex flex-row">
+                            <img class="h-6 w-4 ml-1" src="img/phone.png">
+                            <p id="phoneNumber" class="inline-block">+7987... </p>
+                            <button onclick="showFullNumber()" id="showButton">
+                                <a class="hover:text-sky-700">Показать</a>
+
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

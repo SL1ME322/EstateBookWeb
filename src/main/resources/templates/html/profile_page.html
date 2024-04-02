@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+
+    <meta charset=UTF-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d"
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <link rel=stylesheet th:href="@{css/profile.css}"  >
+
+    <link rel=stylesheet th:href="@{css/fonts.css}">
+    <link rel=preconnect href=https://fonts.googleapis.com>
+    <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+    <link rel="stylesheet" th:href="@{css/splide.min.css}" >
+    <link rel="stylesheet" href="fonts/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css" integrity="sha512-dUOcWaHA4sUKJgO7lxAQ0ugZiWjiDraYNeNJeRKGOIpEq4vroj1DpKcS3jP0K4Js4v6bXk31AAxAxaYt3Oi9xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel=stylesheet>
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css rel=stylesheet />
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js>
+    </script>
+</head>
+
+<body class="bg-[#F9F9F9]">
+
+<script src="three.min.js"></script>
+
+
+
+<span class="main_bg"></span>
+<div class="container">
+    <header>
+        <div class="brandLogo">
+            <figure><img src="img/appIcon.png" alt="logo" width="50px" height="60px"></figure>
+            <span>EstateBook</span>
+        </div>
+    </header>
+    <section class="userProfile card">
+        <div class="profile">
+            <figure><img src="img/ыыы.jpg" alt="profile" width="250px" height="250px"> </figure>
+
+
+
+        </div>
+    </section>
+    <section class="work_skills card">
+        <div class="work">
+            <div class="text-4xl mx-auto text-center  " th:text="${currentUser.getLogin()}">  </div>
+            <div class="rank text-center">
+                <!-- <h1 class="heading">
+                Рейтинг
+            </h1> -->
+                <!-- #region -->
+                <div class="rating flex justify-center   text-center mx-auto w-full items-center">
+                    <span class="mr-6 text-3xl font-medium my-2">8,6</span>
+                    <i class="ri-star-fill ri-xl "></i>
+                    <i class="ri-star-fill ri-xl "></i>
+                    <i class="ri-star-fill ri-xl  "></i>
+                    <i class="ri-star-fill ri-xl  "></i>
+                    <i class="ri-star-fill ri-xl "></i>
+
+                </div>
+            </div>
+            <h1 class="heading">О СЕБЕ</h1>
+            <div class="w-full flex items-center justify-center ">
+
+                <div class="  ml-16">
+
+                    <i class="ri-map-pin-fill ri"></i>
+
+                    <span>Москва, м. Пражская</span>
+                </div>
+                <div class="reg_date " th:text="${currentUser.getRegistrationDate()}"></div>
+            </div>
+            <div>Продавец</div>
+            <div class="secondary">
+                <h1>Metropolitan <br> Museum</h1>
+                <span>
+                        secondary
+                    </span>
+                <p>S34 E 65th Street <br> New York, NY 10651-78 156-187-60</p>
+            </div>
+        </div>
+        <div class="skills">
+            <h1 class="heading">Skills</h1>
+            <ul>
+                <li style="--i:0">Android</li>
+                <li style="--i:1">Web-Design</li>
+                <li style="--i:2">UI/UX</li>
+                <li style="--i:3">Video Editing</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="userDetails card">
+        <div class="userName">
+            <h1 class="name" th:text="${currentUser.getLogin()}"></h1>
+            <div class="map">
+                <i class="ri-map-pin-fill ri"></i>
+                <span  th:text="${currentUser.getLogin()}"></span>
+            </div>
+            <p>Продавец</p>
+        </div>
+
+        <div class="btns">
+            <ul>
+                <li class="sendMsg">
+                    <i class="ri-chat-4-fill ri"></i>
+                    <a href="#">Сообщение</a>
+                </li>
+
+
+
+                <li class="sendMsg px-5 py-2  bg-red-500 ">
+                    <i class="ri-alarm-warning-fill ri"></i>
+                    <a href="#">Пожаловаться</a>
+
+                </li>
+            </ul>
+        </div>
+
+    </section>
+    <section class="timeline_about card">
+        <div class="tabs">
+            <li class="timeline">
+                <i class="ri-eye-fill"></i>
+                <span>
+                        Timeline
+                    </span>
+            </li>
+            <li class="about active">
+                <i class="ri-user-3-fill"> </i>
+                <span>About </span>
+
+            </li>
+        </div>
+        <div class="contact_info">
+            <h1 class="heading">Contact Information</h1>
+            <ul>
+                <li class="phone">
+                    <h1 class="label">
+                        Телефон:
+                    </h1>
+                    <span class="info" th:text="${currentUser.getPhone()}"></span>
+                </li>
+                <li class="address">
+                    <h1 class="label">
+                        Телефон:
+                    </h1>
+                    <span class="info" th:text="${currentUser.getPhone()}"> </span>
+                </li>
+                <li class="email">
+                    <h1 class="label">
+                        Site:
+                    </h1>
+                    <span class="info" th:text="${currentUser.getDescription()}"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="basic_info">
+            <h1 class="heading">Basic Information</h1>
+            <ul>
+                <li class="birthday">
+                    <h1 class="label">birthday
+
+                    </h1>
+                    <span class="info">www.baretskyu</span>
+                </li>
+                <li class="sex">
+                    <h1 class="label">Gender:</h1>
+                    <span class="label">Male</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>

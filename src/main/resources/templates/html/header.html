@@ -1,0 +1,55 @@
+
+<div th:fragment="headerElem" class="flex flex-col justify-between bg-[#9FCC39] px-16  ">
+    <div class="flex items-center justify-between ">
+        <header class="mb-4">
+            <button th:href="@{/html}" class="flex flex-row items-center">
+                <img src=/img/appIcon.png class="w-25 h-20 mr-2" >
+                <h1 class="text-2xl poppins-semibold">
+                    EstateBook
+                </h1>
+            </button>
+
+        </header>
+        <nav class="m-4">
+            <ul class=flex>
+                <li class=mx-2>
+                    <div class=" w-full h-auto flex items-center justify-center">
+                        <a th:href="@{/addEstate}"   class="border relative rounded-md  px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                            <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                            <span class="relative">Разместить объявление</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="mx-2">
+                    <button type="button" onclick="openAuthorization()" class="poppins-semibold rounded-lg px-2 py-2 border border-black">Профиль</button>
+                </li>
+                <div id="authorize" class="close_login">
+                    <form class="flex flex-col space-y-2 #9FCC39  ">
+                        <div class="relative mx-auto justify-center items-center">
+                            <button type="button" class="absolute top-0 right-0 mb-16 mr-1" onclick="closeAuthorization()">
+                                <img src=/img/cross.png class="w-[28px]   h-[28px]    rounded-md ">
+                            </button>
+                            <img src=/img/appIcon.png class="w-52 h-36 mt-4 mx-auto   rounded-md justify-center items-center ">
+
+
+                            <p class="justify-center text-center items- center text-white text-2xl font-bold">Войти или<br> зарегистрироваться</p>
+
+                        </div>
+
+                        <input placeholder="Телефон">
+                        <button type="submit" class="h-[40px] bg-lime-600 text-lg text-white font-semibold">Получить код</button>
+                        <button type="submit" class="h-[40px] bg-lime-600 text-lg text-white  font-semibold">Другим способом</button>
+                    </form>
+                </div>
+            </ul>
+
+        </nav>
+    </div>
+
+    <!--<nav class="mb-3 mt-3 w-28 poppins-medium flex items-center justify-center">
+        <img src=img/gpsicon3.png class="w-3 h-5 mr-1 rounded-md">
+        <p>
+          Москва
+        </p>
+      </nav>-->
+</div>
