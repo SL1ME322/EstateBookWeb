@@ -4,6 +4,8 @@
     <property name="severity" value="warning"/>
     <property name="charset" value="UTF-8"/>
     <property name="fileExtensions" value="java, properties, xml"/>
+    <module name="JavadocPackage"/>
+    <module name="MethodLength"/>
     <module name="LineLength">
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
         <property name="max" value="100"/>
