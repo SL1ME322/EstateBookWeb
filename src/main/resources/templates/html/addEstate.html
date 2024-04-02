@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <title>Главная страница</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d"
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=932cfa06-26a5-45f3-a6c3-060a8ca6facc&lang=ru_RU" type="text/javascript">
+
+    </script>
+
+    <link rel=stylesheet  th:href="@{css/styles.css}" >
+    <link rel=stylesheet th:href="@{css/fonts.css}">
+    <link rel=preconnect href=https://fonts.googleapis.com>
+    <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+    <link rel="stylesheet" th:href="@{css/splide.min.css}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel=stylesheet>
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css rel=stylesheet />
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js>
+    </script>
+</head>
+
+<body class="bg-[#F9F9F9]  ">
+    <script src="three.min.js"></script>
+    <script src="addEstate.js"></script>
+
+
+    <header th:insert="~{html/header.html :: headerElem}">
+
+    </header>
+    <div class="con flex flex-col w-full h-full ml-16">
+        <div class="flex flex-col">
+            <div>Я -
+            </div>
+            <div class="flex gap-x-6 gap-y-4    w-full h-full " onclick="showNewEstate()" id="me">
+                <button class="bg-slate-200  w-48  h-48 rounded-2xl hover:bg-blue-300   ">
+                    Продавец
+                </button>
+                <button class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                    Покупатель
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-col hiddenSt" id="new_estate" onclick="showAim()">
+            <div>
+                Новая недвижимость
+            </div>
+            <div class="flex gap-x-6 gap-y-4  w-full h-full">
+
+                <button class="bg-slate-200  w-48  h-48 rounded-2xl hover:bg-blue-300   ">
+                    Продажа
+                </button>
+
+                <button class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                    Сдать длительно
+                </button>
+                <button class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                    Сдать посуточно
+                </button>
+            </div>
+        </div>
+
+        <!-- <div class="flex flex-col">
+            <div>
+                Новая недвижимость
+            </div>
+            <div class="flex space-x-12  items-center justify-center w-full h-full">
+
+                <button class="bg-slate-200  w-36  h-36 rounded-2xl hover:bg-blue-300   ">
+                    Куплю
+                </button>
+
+                <button class="bg-slate-200 w-36  h-36 rounded-2xl hover:bg-blue-300">
+                    Сниму
+                </button>
+            </div>
+        </div> -->
+        <div class="flex flex-col hiddenSt" id="aim" onclick="showPossiblePurpose()">
+            <div>
+                Назначение
+            </div>
+            <div class="flex flex-wrap  gap-x-6 gap-y-4    w-full h-full">
+
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Офис
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Торговое помещение
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Свободное назначение
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Общепит
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Автосервис
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Готовый бизнес
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Юридический адрес
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Склад
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Земля комм.назначения
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Гостиница
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Производство
+                </button>
+            </div>
+        </div>
+        <!--ВОЗМОЖНОЕ НАЗНАЧЕНИЕ-->
+        <div class="flex flex-col hiddenSt " id="purpose" onclick="showMap()">
+            <div>
+                Возможное назначение
+            </div>
+            <div class="flex flex-wrap  gap-x-6 gap-y-4   w-full h-full">
+
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Помещение для банка
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Продуктовый магазин
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Шоурум
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Турагентство
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Медицинский центр
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Салон красоты
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Другое
+                </button>
+            </div>
+        </div>
+        <!-- <div class="flex  flex-col hiddenSt">
+            <div>
+                Возможное назначение
+            </div>
+            <div class="flex flex-wrap gap-x-6 gap-y-4   w-full h-full">
+
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Помещение для банка
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Продуктовый магазин
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Шоурум
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Турагентство
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Медицинский центр
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Салон красоты
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Другое
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-col hiddenSt">
+            <div>
+                Возможное назначение
+            </div>
+            <div class="flex flex-wrap gap-x-6 gap-y-4   w-full h-full">
+
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Алкогольный склад
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Овощехранилище
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Фармацевтический сл
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Другое
+                </button>
+            </div>
+        </div> -->
+        <div class="flex flex-col hiddenSt">
+            <div>
+                Тип здания
+            </div>
+            <div class="flex flex-wrap gap-x-6 gap-y-4   w-full h-full">
+
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Бизнес-центр
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Складское помещение
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Торговый центр
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Отдельно стоящее здание
+                </button>
+                <button class="bg-slate-200  w-44  h-16 rounded-full hover:bg-blue-300   ">
+                    Помещение в жилом доме
+                </button>
+            </div>
+        </div>
+
+        <div class="hiddenSt ml-32 mx-auto flex-col  " onclick="showObjInfo()" id="mapDiv">
+            <!-- <div class="flex-row">
+                <input>
+                <button>Найти<button>
+            </div> -->
+            <div class="text">Адрес здания:</div>
+            <div id="map" class="justify-center items-center w-[45em] h-[31em]"></div>
+        </div>
+        <div class=" hiddenSt flex flex-col w-1/2" id="aboutObj">
+            <div class="text-2xl">
+                Об объекте
+            </div>
+            <div class="flex flex-col gap-x-6 gap-y-4   w-full h-full">
+                <div>
+                    <p class="text-lg">Название БЦ</p>
+                    <input class="rounded-lg">
+                </div>
+                <div>
+                    <p class="text-lg ">Этаж</p>
+                    <div class="flex space-x-2 ">
+                        <input type="number" class="rounded-lg">
+                        <p class="  ">из</p>
+                        <input type="number" class="rounded-lg">
+                    </div>
+
+                </div>
+                <div>
+                    <p class="text-lg">Площадь, м²</p>
+                    <input type="number" class="rounded-lg">
+                </div>
+
+                <div>
+                    <p class="text-lg">Сколько комнат</p>
+                    <input type="number" class="rounded-lg">
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-lg">
+                        Назначение
+                    </div>
+                    <div class="flex flex-wrap  gap-x-6 gap-y-4    w-full h-full">
+
+                        <button class="bg-slate-200 w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            A
+                        </button>
+                        <button class="bg-slate-200  w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            A+
+                        </button>
+                        <button class="bg-slate-200  w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            B
+                        </button>
+                        <button class="bg-slate-200  w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            B+
+                        </button>
+                        <button class="bg-slate-200  w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            C
+                        </button>
+                        <button class="bg-slate-200  w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            C+
+                        </button>
+
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-lg">
+                        Вход
+                    </div>
+                    <div class="flex flex-wrap  gap-x-6 gap-y-4    w-full h-full">
+                        <button class="bg-slate-200 w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            Отдельный
+                        </button>
+                        <button class="bg-slate-200  w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            Общий
+                        </button>
+
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-lg">
+                        Ремонт
+                    </div>
+                    <div class="flex flex-wrap  gap-x-6 gap-y-4    w-full h-full">
+                        <button class="bg-slate-200 w-32  h-12 rounded-full hover:bg-blue-300   ">
+                            Косметический
+                        </button>
+                        <button class="bg-slate-200  w-32   h-12 rounded-full hover:bg-blue-300   ">
+                            Евро
+                        </button>
+                        <button class="bg-slate-200 w-32   h-12 rounded-full hover:bg-blue-300   ">
+                            Дизайнерский
+                        </button>
+                        <button class="bg-slate-200  w-32 h-12 rounded-full hover:bg-blue-300   ">
+                            Требуется
+                        </button>
+
+
+                    </div>
+                </div>
+                <div class="flex justify-center items-center space-x-12">
+                    <button class="  w-48  h-16 bg-gray-500 rounded-xl">
+                        Сохранить шаблон
+                    </button>
+                    <button class="  w-48  h-16 bg-yellow-500 rounded-xl">
+                        Разместить объявление
+                    </button>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // Wait for the Yandex Maps API and DOM tree to be ready
+        // Wait for the Yandex Maps API and DOM tree to be ready
+        var myPlacemark = null;
+        var menuOpen = null;
+        ymaps.ready(function() {
+
+            var myMap = new ymaps.Map('map', {
+                center: [59.22, 39.89],
+                zoom: 12,
+                controls: [],
+                searchControlProvider: 'yandex#search'
+            });
+
+            // Создаем экземпляр класса ymaps.control.SearchControl
+            var mySearchControl = new ymaps.control.SearchControl({
+                options: {
+                    noPlacemark: true
+                }
+            });
+
+            // Результаты поиска будем помещать в коллекцию.
+            var mySearchResults = new ymaps.GeoObjectCollection(null, {
+                hintContentLayout: ymaps.templateLayoutFactory.createClass('$[properties.name]')
+            });
+
+            myMap.controls.add(mySearchControl);
+            myMap.geoObjects.add(mySearchResults);
+
+            // При клике по найденному объекту метка становится красной.
+            mySearchResults.events.add('click', function(e) {
+                e.get('target').options.set('preset', 'islands#redIcon');
+            });
+
+            // Выбранный результат помещаем в коллекцию.
+
+            mySearchControl.events.add('resultselect', function(e) {
+                var index = e.get('index');
+                mySearchControl.getResult(index).then(function(res) {
+                    // Удаляем предыдущую метку, если она существует
+                    if (myPlacemark) {
+                        myMap.geoObjects.remove(myPlacemark);
+                    }
+
+                    // Создаем новую метку
+                    myPlacemark = createPlacemark(res.geometry.getCoordinates());
+                    myMap.geoObjects.add(myPlacemark);
+
+                    // Обновляем адрес на метке
+                    getAddress(res.geometry.getCoordinates());
+                    menuOpen =true;
+                });
+            }).add('submit', function() {
+                mySearchResults.removeAll();
+            });
+
+
+
+            // Слушаем клик на карте.
+            myMap.events.add('click', function(e) {
+                var coords = e.get('coords');
+
+                // Если метка уже создана – просто передвигаем ее.
+                if (myPlacemark) {
+                    myPlacemark.geometry.setCoordinates(coords);
+                }
+                // Если нет – создаем.
+                else {
+                    myPlacemark = createPlacemark(coords);
+                    myMap.geoObjects.add(myPlacemark);
+                }
+                getAddress(coords);
+                menuOpen =true;
+            });
+
+            // Создание метки.
+            function createPlacemark(coords) {
+                // Создаем метку с заданными координатами и пустым значением для iconCaption
+                var placemark = new ymaps.Placemark(coords, {}, {
+                    preset: 'islands#violetDotIconWithCaption',
+                    draggable: true
+                });
+
+                // Определяем адрес по заданным координатам и обновляем значение iconCaption после получения адреса
+                ymaps.geocode(coords).then(function(res) {
+                    var firstGeoObject = res.geoObjects.get(0);
+                    placemark.properties.set('iconCaption', firstGeoObject.getAddressLine());
+                });
+                placemark.events.add('dragend', function(e) {
+                    var newCoords = e.get('target').geometry.getCoordinates(); // Получаем новые координаты метки после перемещения
+                    getAddress(newCoords); 
+                    menuOpen =true;// Определяем новый адрес по новым координатам
+                    myMap.setCenter(newCoords); // Центрируем карту по новым координатам
+                });
+
+                return placemark;
+            }
+
+            // Определяем адрес по координатам (обратное геокодирование).
+            function getAddress(coords) {
+                myPlacemark.properties.set('iconCaption', 'поиск...');
+                ymaps.geocode(coords).then(function(res) {
+                    var firstGeoObject = res.geoObjects.get(0);
+
+                    myPlacemark.properties
+                        .set({
+                            // Формируем строку с данными об объекте.
+                            iconCaption: [
+                                // Название населенного пункта или вышестоящее административно-территориальное образование.
+                                firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+                                // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+                                firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+                            ].filter(Boolean).join(', '),
+                            // В качестве контента балуна задаем строку с адресом объекта.
+                            balloonContent: firstGeoObject.getAddressLine()
+                        });
+                });
+            }
+        });
+    </script>
+    <script th:src="@{/js/splide.min.js}"></script>
+    <script th:src="@{/js/transitions.js}"></script>
+
+</body>
+
+</html>

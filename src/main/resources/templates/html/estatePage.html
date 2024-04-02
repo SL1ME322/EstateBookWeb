@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8>
+    <title>Главная страница</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d"
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+
+    <link rel=stylesheet  th:href="@{/css/styles.css}"  >
+    <link rel=stylesheet th:href="@{/css/fonts.css}"  >
+    <link rel=preconnect href=https://fonts.googleapis.com>
+    <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+    <link rel="stylesheet" th:href="@{/css/splide.min.css}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel=stylesheet>
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css rel=stylesheet />
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js>
+    </script>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+              "three": "https://unpkg.com/three@v0.153.0/build/three.module.js",
+              "three/addons/": "https://unpkg.com/three@v0.153.0/examples/jsm/"
+            }
+          }
+    </script>
+</head>
+<body class="bg-[#F9F9F9]">
+<script src="three.min.js" ></script>
+
+<header th:insert="~{html/header.html :: headerElem}">
+
+</header>
+<div>
+    <div class="flex flex-col mx-16">
+        <div class="flex flex-row  mt-2">
+
+            <div class="flex flex-col   w-9/12">
+                <!--ТАБЫЫЫЫЫЫЫЫЫЫЫЫЫ-->
+                <div class="mb-4 border-b w-[55.7em] border-gray-200 dark:border-gray-700">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                        <li class="me-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Галерея</button>
+                        </li>
+                        <li class="me-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600
+                hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">3D модель</button>
+                        </li>
+
+                    </ul>
+                </div>
+                <div id="default-tab-content" class="w-full">
+                    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800   " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="flex  w-full ">
+
+                            <div class="w-full h-full mr-3">
+                                <section id="main-carousel" class="splide w-full">
+                                    <div class="splide__track w-full h-full mx-auto items-center justify-center">
+                                        <div class="splide__arrows"></div>
+                                        <ul class="splide__list">
+                                            <li class="splide__slide">
+                                                <img src="img/img1.jpg" class="object-cover h-full w-full" alt="">
+                                            </li>
+                                            <li class="splide__slide">
+                                                <img src="img/img2.jpg" class="object-cover h-full w-full" alt="">
+                                            </li>
+                                            <li class="splide__slide">
+                                                <img src="img/img3.jpg" class="object-cover h-full w-full" alt="">
+                                            </li>
+                                            <li class="splide__slide">
+                                                <img src="img/img1.jpg" class="object-cover h-full w-full" alt="">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                                <ul id="thumbnails" class="thumbnails">
+                                    <li class="thumbnail">
+                                        <img src="img/img1.jpg" alt="">
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="img/img2.jpg" alt="">
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="img/img3.jpg" alt="">
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="img/img1.jpg" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Правый блок с описанием -->
+
+
+                        </div>
+                    </div>
+                    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800  w-full  w-full " id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+
+                        <div  th:insert="~{html/3dscene.html :: 3dscene}"></div>
+                        <script type="module" src="/js/3d.js"></script>
+                    </div>
+
+                </div>
+            </div>
+            <div class="w-4/12  ">
+                <div  th:insert="~{html/estateDescription.html :: estateDescription}"></div>
+
+            </div>
+
+
+        </div>
+        <div class="items-center mt-8 p-6 w-full bg-slate-100 space-y-4   ">
+            <div class="items-center justify-center ">
+                <p class="poppins-semibold text-xl">Технические характеристики</p>
+
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Код объекта</p>
+                <p>1534534</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Разрешенная мощность</p>
+                <p>34.32 кВт</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Потолки</p>
+                <p>1</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Возможность организации антресоли</p>
+                <p>Нет</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Тех. параметры вентиляции
+                </p>
+                <p>Ø100; 200х150; 250х550</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Возможность организации доп. уровня</p>
+                <p>Нет</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Нагрузка на пол
+                </p>
+                <p>800 кг/м2</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Технологические решения для общественного питания
+                </p>
+                <p>Есть</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="flex-1 flex after:content-['']  after:flex-1 after:block  after:w-full   after:border-b-4 after:mb-1  after:mx-2 after:border-dotted after:border-b">Приточная вентиляция
+                </p>
+                <p>Нет</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script th:src="@{/js/splide.min.js}"></script>
+<script th:src="@{/js/splide.min.js}" ></script>
+<script th:src="@{/js/universalScript.js}"></script>
+<script>
+    var splide = new Splide('#main-carousel', {
+        pagination: false,
+        rewind: true,
+        //autoplay: true,
+        //interval: 6000
+        speed: 330,
+        waitForTransition: true,
+        fixedHeight: '30rem',
+    });
+
+    var thumbnails = document.getElementsByClassName('thumbnail');
+    var current;
+
+
+    for (var i = 0; i < thumbnails.length; i++) {
+        initThumbnail(thumbnails[i], i);
+    }
+
+
+    function initThumbnail(thumbnail, index) {
+        thumbnail.addEventListener('click', function() {
+            splide.go(index);
+        });
+    }
+
+
+    splide.on('mounted move', function() {
+        var thumbnail = thumbnails[splide.index];
+
+
+        if (thumbnail) {
+            if (current) {
+                current.classList.remove('is-active');
+            }
+
+
+            thumbnail.classList.add('is-active');
+            current = thumbnail;
+        }
+    });
+
+
+    splide.mount();
+</script>
+
+</body>
+
+</html>

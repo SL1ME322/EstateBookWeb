@@ -1,0 +1,99 @@
+   <div>
+       <p class="tracking-[.12em] text-blue-500 text-xl  poppins-bold">Продавец</p>
+       <div class="flex flex-row">
+           <img src="img/star.png" class="h-9 w-10">
+           <img src="img/star.png" class="h-9 w-10">
+           <img src="img/star.png" class="h-9 w-10">
+           <img src="img/star.png" class="h-9 w-10">
+           <img src="img/star.png" class="h-9 w-10">
+
+       </div>
+   </div>
+
+
+
+   <div class="bg-white border-2 w-full ml-4 h-[34rem]">
+       <div class="w-full   p-4">
+
+           <div class="flex justify-between">
+               <p class="font-bold">Крутая хата</p>
+               <p class="text-yellow-400 font-bold">10000000 Р</p>
+           </div>
+
+           <div class="flex items-center space-x-0.5 justify-between">
+               <div class="flex items-center  flex-row">
+                   <img src="img/metro.png" class="h-4 w-6 mr-1 relative rounded-t-lg">
+                   <p>Нахимовский проспект</p>
+               </div>
+
+               <div class=" flex flex-row">
+                   <p>
+                       12 мин. пешком
+                   </p>
+
+                   <img class="h-6 w-4 ml-1" src="img/man.png">
+               </div>
+
+           </div>
+
+       </div>
+   </div>
+ 
+   <div class="bg-white border-2 w-4/12 ml-4 h-[34rem]  ">
+       <div class="w-full poppins-medium flex flex-col p-4 h-full ">
+           <div class="flex justify-between mb-3 ">
+               <p class="font-bold text-2xl">Крутая хата</p>
+               <p class="text-yellow-400 font-bold  text-2xl">10000000 Р</p>
+           </div>
+
+           <div class="flex items-center space-x-0.5 justify-between   ">
+               <div class="flex items-center  flex-row">
+                   <img src="img/metro.png" class="h-4 w-6 mr-1 relative rounded-t-lg">
+                   <p>Нахимовский проспект</p>
+               </div>
+
+               <div class=" flex flex-row">
+                   <p>
+                       12 мин. пешком
+                   </p>
+
+                   <img class="h-6 w-4 ml-1" src="img/man.png">
+               </div>
+
+           </div>
+           <hr class="mt-auto mb-4 border-t-2 border-gray-300">
+           <div class="  flex-col bg-gray ">
+               <div class="flex flex-row items-center  ">
+                   <div class="relative cursor-pointer ">
+                       <img class="w-32 h-32 rounded-full" src="img/ыыы.jpg">
+                       <div class="w-12 h-6 rounded-full bg-yellow-100 flex flex-row absolute bottom-0   right-0">
+                           <img src="img/star.png" class="h-7/12 w-1/2  ">
+                           <p>
+                               5.0
+                           </p>
+                       </div>
+                   </div>
+
+
+                   <div class="space-y-3 ml-4 mb-12">
+                       <p class="tracking-wide poppins-bold hover:text-sky-700
+                        cursor-pointer text-2xl" th:text="${currentUser.getLogin()}">
+
+                       </p>
+                       <div class="flex flex-row items-center">
+                           <div class="mr-4 flex flex-row">
+                               <img class="h-6 w-4 ml-1" src="img/phone.png">
+                               <p id="phoneNumber" class="inline-block">+7987... </p>
+                               <button onclick="showFullNumber()" id="showButton">
+                                   <a class="hover:text-sky-700">Показать</a>
+
+                               </button>
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+
+           </div>
+       </div>
+   </div>

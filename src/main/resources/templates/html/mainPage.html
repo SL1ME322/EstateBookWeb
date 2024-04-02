@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+  <meta charset=UTF-8>
+  <title>Главная страница</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+
+  <link rel=stylesheet th:href="@{css/styles.css}">
+  <link rel=stylesheet th:href="@{css/fonts.css}"  >
+  <link rel=preconnect href=https://fonts.googleapis.com>
+  <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+  <link rel="stylesheet"  th:href="@{/css/splide.min.css}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel=stylesheet>
+  <link href=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css rel=stylesheet />
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js></script>
+
+</head>
+
+
+
+
+<body>
+
+<header th:insert="~{html/header.html :: headerElem}">
+
+</header>
+
+<div class="flex-col items-center justify-center space-x-2 w-full mx-auto">
+  <div class="flex flex-row items-center justify-center">
+    <button id=estateDropdownBgHoverButton data-dropdown-toggle=estateDropdownBgHover class="text-black bg-white border border-slate-950 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type=button>Недвижимость<svg class="w-2.5 h-2.5 ms-3" aria-hidden=true xmlns=http://www.w3.org/2000/svg fill=none viewBox="0 0 10 6">
+      <path stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 d="m1 1 4 4 4-4" />
+    </svg>
+    </button>
+    <div id=estateDropdownBgHover class="z-10 hidden w-54 bg-white rounded-lg shadow dark:bg-gray-700">
+      <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby=estateDropdownBgHoverButton>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-4 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Квартира во
+                вторичке</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input checked id=checkbox-item-5 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Квартира в
+                новостройке</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Комната</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Жилой
+                комплекс</span>
+          </label>
+        </li>
+        <div class="border-t border-gray-300 dark:border-gray-600"></div>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Дом, дача</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Часть дома</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Таунхаус</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Участок</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Коттеджный, дачный
+                поселок</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+    <button id=dropdownBgHoverButton data-dropdown-toggle=dropdownBgHover class="text-black bg-white border border-slate-950 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type=button>Комнат<svg class="w-2.5 h-2.5 ms-3" aria-hidden=true xmlns=http://www.w3.org/2000/svg fill=none viewBox="0 0 10 6">
+      <path stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 d="m1 1 4 4 4-4" />
+    </svg>
+    </button>
+    <div id=dropdownBgHover class="z-10 hidden w-48 bg-white rounded-lg shadow dark:bg-gray-700">
+      <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby=dropdownBgHoverButton>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-4 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input checked id=checkbox-item-5 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">2</span>
+          </label>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input id=checkbox-item-6 type=checkbox value class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <span class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">3</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+    <button id=priceDropdownButton data-dropdown-toggle=priceDropdownBgHover class="text-black bg-white border border-slate-950 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type=button>Цена<svg class="w-2.5 h-2.5 ms-3" aria-hidden=true xmlns=http://www.w3.org/2000/svg fill=none viewBox="0 0 10 6">
+      <path stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 d="m1 1 4 4 4-4" />
+    </svg>
+    </button>
+    <div id=priceDropdownBgHover class="mx-auto z-10 hidden w-68 bg-white rounded-lg shadow dark:bg-gray-700">
+      <ul class="p-3 items-center justify-center text-sm text-gray-700 dark:text-gray-200 flex flex-row" aria-labelledby=priceDropdownButton>
+        <li>
+          <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input class="w-32 rounded" placeholder="от " />
+          </div>
+        </li>
+        <li>
+          <label class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input class="w-32 rounded" placeholder=до />
+          </label>
+        </li>
+      </ul>
+    </div>
+    <input list=citiesList placeholder="Ваш город..." class="text-black bg-white border border-slate-950 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <datalist id=citiesList>
+      <option>Москва</option>
+      <option>БАХЧИСАРАЙ</option>
+      <option>КИIV</option>
+      ...
+    </datalist>
+    <button class="poppins-bold rounded-lg px-12 py-2  border border-slate-700 bg-green-500 text-white hover:bg-green-700 bg-gray-600 ">Найти</button>
+  </div>
+
+  <div class="flex flex-wrap space-x-8 items-center justify-center">
+
+
+    <div th:fragment="estate" th:each="estate : ${estates}" class="flex flex-wrap justify-center items-center space-x-4 my-8  ">
+      <div class="w-[21rem] h-[24.2rem] rounded-lg  shadow-xl shadow-black-500/50">
+        <div class=relative>
+
+          <section  th:id="${'image-carousel'+ estate.getId() }" class="splide " aria-label="Beautiful Images">
+            <div class="splide__track">
+              <ul class="splide__list" id="photo-list">
+                <li class="splide__slide">
+                  <img src=img/img1.jpg class="h-full w-full relative rounded-t-lg">
+
+                </li>
+                <li class="splide__slide">
+                  <img src=img/img1.jpg class="h-full w-full relative rounded-t-lg">
+                </li>
+                <li class="splide__slide">
+                  <img src=img/img1.jpg class="h-full w-full relative rounded-t-lg">
+                </li>
+                <li class="splide__slide">
+                  <img src=img/img1.jpg class="h-full w-full relative rounded-t-lg">
+                </li>
+              </ul>
+            </div>
+          </section>
+          <input type="hidden" id="estatesSize" th:value="${estates.size()}" />
+          <div class="flex flex-row absolute top-0 right-0 backdrop-blur-sm bg-white/30 rounded-xl items-center p-1 space-0.5">
+            <img src=img/camera.png class="h-5 w-6">
+            <p id="photo-count" class="text-sm text-white"></p>
+          </div>
+        </div>
+        <div class="px-4 py-4 bg-[#F4F9E7] rounded-b-lg space-y-1">
+          <div class=flex>
+            <p class="text-xl font-bold" th:text ="${estate.price + '₽'}"></p>
+            <div class="flex space-x-2 ml-auto">
+              <img src=img/map.png class="h-7 w-8">
+              <img src=img/favourite.png class="h-7 w-8">
+            </div>
+          </div>
+          <div class="flex flex-row space-x-2 font-semibold">
+            <p>1 комн.</p>
+            <p>•</p>
+            <p>38 м²</p>
+            <p>•</p>
+            <p>5 этаж</p>
+          </div>
+          <div class="flex items-center space-x-0.5">
+            <img src=img/metro.png class="h-4 w-6 relative rounded-t-lg">
+            <p th:text ="${estate.getMetroStation()}"></p>
+          </div>
+          <p  class="text-sm text-gray-500"  th:text ="${estate.getLocation()}"> </p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="flex flex-col w-128 bg-[#f7fee7] items-center pt-2 pb-5 justify-center">
+    <div class="w-128 px-12 pt-2 pb-2">
+      <div class="flex flex-row justify-between">
+        <h1 class="text-2xl mr-8 poppins-semibold cursor-pointer mb-2">Новости</h1>
+        <h1 class="text-lg text-green-700 hover:text-green-900 hover:underline cursor-pointer">Читать все</h1>
+      </div>
+      <div class="flex flex-row space-x-5 justify-center ">
+        <div class="flex flex-wrap space-x-8 items-center justify-center relative h-64 w-96  ">
+          <div class="h-full w-full relative overflow-hidden ">
+            <img src=https://www.homesoverseas.ru/upload/userfiles/images/1(69).jpg class="h-full w-full object-cover relative rounded-sm hover:scale-125 transition duration-500 ease-in-out">
+            <div class="absolute bottom-0 w-full justify-center text-white font-bold bg-gradient-to-t from-black to-transparent w-full px-4 py-3 h-1/3">
+              <h1 class="mx-auto text-2xl">
+                Новость 1
+              </h1>
+              <p>
+                Недвижимость подешевела
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap space-x-8 items-center justify-center relative h-64 w-96">
+          <div class="h-full w-full relative overflow-hidden">
+            <img src="https://d2hhh2ewuz3i8z.cloudfront.net/crop/960x720/https://production-kyero-property-images.s3.amazonaws.com/14634/14634427/263363510_original.jpg?checksum=c6a0e3a3bbef5e4cc9282d991aa90789f2682d9a" class="h-full w-full object-cover relative rounded-sm hover:scale-125 transition duration-500 ease-in-out">
+            <div class="absolute bottom-0 w-full justify-center text-white font-bold bg-gradient-to-t from-black to-transparent w-full px-4 py-3 h-1/3">
+              <h1 class="mx-auto text-2xl">
+                Новость 2
+              </h1>
+              <p>
+                Недвижимость подешевела
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap space-x-8 items-center justify-center relative h-64 w-96">
+          <div class="h-full w-full relative overflow-hidden">
+            <img src=https://avatars.dzeninfra.ru/get-zen_doc/3396902/pub_60c0c9d77cb731529f74ec4d_60c0e425f7426b51832b4185/scale_1200 class="h-full w-full object-cover relative rounded-sm hover:scale-125 transition duration-500 ease-in-out">
+            <div class="absolute bottom-0 w-full justify-center text-white font-bold bg-gradient-to-t from-black to-transparent w-full px-4 py-3 h-1/3">
+              <h1 class="mx-auto text-2xl">
+                Новость 3
+              </h1>
+              <p>
+                Недвижимость подешевела
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script th:src="@{/js/carousel.js}"  ></script>
+  <script  th:src="@{/js/splide.min.js}"  ></script>
+
+<script>
+   const estatesSize = document.getElementById('estatesSize').value;
+
+  for (let i =2; i<=estatesSize + 1; i++){
+    const element = document.querySelector(`#image-carousel${i}`);
+    console.log(element);
+    new Splide(element).mount();
+  }
+
+</script>
+
+  <script th:src="@{/js/popup.js}"></script>
+</body>
+
+</html>
