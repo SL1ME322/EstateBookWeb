@@ -5,10 +5,11 @@
     <property name="charset" value="UTF-8"/>
     <property name="fileExtensions" value="java, properties, xml"/>
     <module name="JavadocPackage"/>
-
+    <module name="EmptyBlock">
+        <property name="severity" value="error"/>
+    </module>
     <module name="StrictDuplicateCode">
         <property name="severity" value="warning"/>
-
     </module>
     <module name="LineLength">
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
@@ -22,6 +23,4 @@
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
-
-
 </module>
