@@ -1,4 +1,4 @@
-name: SpringBoot Check Style
+name: SpringBoot
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
       - pipebranch
 jobs:
   checkstyle:
-    name: Checkstyle Check
+    name: CompileTest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
