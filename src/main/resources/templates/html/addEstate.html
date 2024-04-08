@@ -17,30 +17,33 @@
         };
     </script>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=932cfa06-26a5-45f3-a6c3-060a8ca6facc&lang=ru_RU" type="text/javascript">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=932cfa06-26a5-45f3-a6c3-060a8ca6facc&lang=ru_RU"
+            type="text/javascript">
 
     </script>
 
-    <link rel=stylesheet  th:href="@{css/styles.css}" >
+    <link rel=stylesheet th:href="@{css/styles.css}">
     <link rel=stylesheet th:href="@{css/fonts.css}">
     <link rel=preconnect href=https://fonts.googleapis.com>
     <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
     <link rel="stylesheet" th:href="@{css/splide.min.css}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel=stylesheet>
-    <link href=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css rel=stylesheet />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel=stylesheet>
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css rel=stylesheet/>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js>
     </script>
 </head>
 
 <body class="bg-[#F9F9F9]  ">
-    <script src="three.min.js"></script>
-    <script src="addEstate.js"></script>
+<script src="three.min.js"></script>
+<script th:src="@{/js/addEstate.js}"></script>
 
 
-    <header th:insert="~{html/header.html :: headerElem}">
+<header th:insert="~{html/header.html :: headerElem}">
 
-    </header>
+</header>
+<!--<form action="#" th:action ="@{/createEstate}" th:object = "${estate}" method="post">-->
     <div class="con flex flex-col w-full h-full ml-16">
         <div class="flex flex-col">
             <div>Я -
@@ -54,24 +57,45 @@
                 </button>
             </div>
         </div>
-        <div class="flex flex-col hiddenSt" id="new_estate" onclick="showAim()">
+        <div class="flex flex-col  " id="new_estate" onclick="showAim()">
             <div>
-                Новая недвижимость
+                Цель
             </div>
             <div class="flex gap-x-6 gap-y-4  w-full h-full">
 
-                <button class="bg-slate-200  w-48  h-48 rounded-2xl hover:bg-blue-300   ">
+                <button   class="bg-slate-200  w-48  h-48 rounded-2xl hover:bg-blue-300    ">
                     Продажа
                 </button>
 
-                <button class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                <button   class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
                     Сдать длительно
                 </button>
-                <button class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                <button   class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
                     Сдать посуточно
                 </button>
             </div>
         </div>
+        <div class="flex flex-col  " id="estate_type" onclick="showEstateType()">
+            <div>
+                Тип недвижимости
+            </div>
+            <input type="hidden" id="estateType" value = "estateType"/>
+            <div class="flex gap-x-6 gap-y-4  w-full h-full">
+                <button  onclick="changeEstateType('Продажа', this)" value="Квартира" class="bg-slate-200  w-48  h-48 rounded-2xl hover:bg-blue-300">
+                    Квартира
+                </button>
+                <button    onclick="changeEstateType('Дом', this)" value="Дом" class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                    Дом
+                </button>
+                <button  onclick="changeEstateType('Коммерческая недвижимость', this)" value="Коммерческая недвижимость" class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                    Коммерческая недвижимость
+                </button>
+                <button    onclick="changeEstateType('Земельный участок', this)" value="Земельный участок" class="bg-slate-200 w-48  h-48 rounded-2xl hover:bg-blue-300">
+                    Земельный участок
+                </button>
+            </div>
+        </div>
+
 
         <!-- <div class="flex flex-col">
             <div>
@@ -88,7 +112,7 @@
                 </button>
             </div>
         </div> -->
-        <div class="flex flex-col hiddenSt" id="aim" onclick="showPossiblePurpose()">
+        <div class="flex flex-col  " id="aim" onclick="showPossiblePurpose()">
             <div>
                 Назначение
             </div>
@@ -130,7 +154,7 @@
             </div>
         </div>
         <!--ВОЗМОЖНОЕ НАЗНАЧЕНИЕ-->
-        <div class="flex flex-col hiddenSt " id="purpose" onclick="showMap()">
+        <div class="flex flex-col   " id="purpose" onclick="showMap()">
             <div>
                 Возможное назначение
             </div>
@@ -208,7 +232,7 @@
                 </button>
             </div>
         </div> -->
-        <div class="flex flex-col hiddenSt">
+        <div class="flex flex-col  ">
             <div>
                 Тип здания
             </div>
@@ -232,7 +256,7 @@
             </div>
         </div>
 
-        <div class="hiddenSt ml-32 mx-auto flex-col  " onclick="showObjInfo()" id="mapDiv">
+        <div class="  ml-32 mx-auto flex-col  " onclick="showObjInfo()" id="mapDiv">
             <!-- <div class="flex-row">
                 <input>
                 <button>Найти<button>
@@ -240,13 +264,21 @@
             <div class="text">Адрес здания:</div>
             <div id="map" class="justify-center items-center w-[45em] h-[31em]"></div>
         </div>
-        <div class=" hiddenSt flex flex-col w-1/2" id="aboutObj">
+        <div class="   flex flex-col w-1/2" id="aboutObj">
             <div class="text-2xl">
                 Об объекте
             </div>
             <div class="flex flex-col gap-x-6 gap-y-4   w-full h-full">
                 <div>
-                    <p class="text-lg">Название БЦ</p>
+                    <p class="text-lg">Название недвижимости</p>
+                    <input class="rounded-lg">
+                </div>
+                <div>
+                    <p class="text-lg">Год постройки</p>
+                    <input class="rounded-lg">
+                </div>
+                <div>
+                    <p class="text-lg">Стоимость</p>
                     <input class="rounded-lg">
                 </div>
                 <div>
@@ -267,7 +299,7 @@
                     <p class="text-lg">Сколько комнат</p>
                     <input type="number" class="rounded-lg">
                 </div>
-                <div class="flex flex-col">
+                <!--<div class="flex flex-col">
                     <div class="text-lg">
                         Назначение
                     </div>
@@ -293,7 +325,7 @@
                         </button>
 
                     </div>
-                </div>
+                </div> -->
                 <div class="flex flex-col">
                     <div class="text-lg">
                         Вход
@@ -339,134 +371,127 @@
                 </div>
 
 
-
-
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        // Wait for the Yandex Maps API and DOM tree to be ready
-        // Wait for the Yandex Maps API and DOM tree to be ready
-        var myPlacemark = null;
-        var menuOpen = null;
-        ymaps.ready(function() {
-
-            var myMap = new ymaps.Map('map', {
-                center: [59.22, 39.89],
-                zoom: 12,
-                controls: [],
-                searchControlProvider: 'yandex#search'
-            });
-
-            // Создаем экземпляр класса ymaps.control.SearchControl
-            var mySearchControl = new ymaps.control.SearchControl({
-                options: {
-                    noPlacemark: true
-                }
-            });
-
-            // Результаты поиска будем помещать в коллекцию.
-            var mySearchResults = new ymaps.GeoObjectCollection(null, {
-                hintContentLayout: ymaps.templateLayoutFactory.createClass('$[properties.name]')
-            });
-
-            myMap.controls.add(mySearchControl);
-            myMap.geoObjects.add(mySearchResults);
-
-            // При клике по найденному объекту метка становится красной.
-            mySearchResults.events.add('click', function(e) {
-                e.get('target').options.set('preset', 'islands#redIcon');
-            });
-
-            // Выбранный результат помещаем в коллекцию.
-
-            mySearchControl.events.add('resultselect', function(e) {
-                var index = e.get('index');
-                mySearchControl.getResult(index).then(function(res) {
-                    // Удаляем предыдущую метку, если она существует
-                    if (myPlacemark) {
-                        myMap.geoObjects.remove(myPlacemark);
-                    }
-
-                    // Создаем новую метку
-                    myPlacemark = createPlacemark(res.geometry.getCoordinates());
-                    myMap.geoObjects.add(myPlacemark);
-
-                    // Обновляем адрес на метке
-                    getAddress(res.geometry.getCoordinates());
-                    menuOpen =true;
-                });
-            }).add('submit', function() {
-                mySearchResults.removeAll();
-            });
+<!--</form>-->
 
 
+<script type="text/javascript">
 
-            // Слушаем клик на карте.
-            myMap.events.add('click', function(e) {
-                var coords = e.get('coords');
+    var myPlacemark = null;
+    var menuOpen = null;
+    ymaps.ready(function () {
 
-                // Если метка уже создана – просто передвигаем ее.
-                if (myPlacemark) {
-                    myPlacemark.geometry.setCoordinates(coords);
-                }
-                // Если нет – создаем.
-                else {
-                    myPlacemark = createPlacemark(coords);
-                    myMap.geoObjects.add(myPlacemark);
-                }
-                getAddress(coords);
-                menuOpen =true;
-            });
+        var myMap = new ymaps.Map('map', {
+            center: [59.22, 39.89],
+            zoom: 12,
+            controls: [],
+            searchControlProvider: 'yandex#search'
+        });
 
-            // Создание метки.
-            function createPlacemark(coords) {
-                // Создаем метку с заданными координатами и пустым значением для iconCaption
-                var placemark = new ymaps.Placemark(coords, {}, {
-                    preset: 'islands#violetDotIconWithCaption',
-                    draggable: true
-                });
 
-                // Определяем адрес по заданным координатам и обновляем значение iconCaption после получения адреса
-                ymaps.geocode(coords).then(function(res) {
-                    var firstGeoObject = res.geoObjects.get(0);
-                    placemark.properties.set('iconCaption', firstGeoObject.getAddressLine());
-                });
-                placemark.events.add('dragend', function(e) {
-                    var newCoords = e.get('target').geometry.getCoordinates(); // Получаем новые координаты метки после перемещения
-                    getAddress(newCoords); 
-                    menuOpen =true;// Определяем новый адрес по новым координатам
-                    myMap.setCenter(newCoords); // Центрируем карту по новым координатам
-                });
-
-                return placemark;
-            }
-
-            // Определяем адрес по координатам (обратное геокодирование).
-            function getAddress(coords) {
-                myPlacemark.properties.set('iconCaption', 'поиск...');
-                ymaps.geocode(coords).then(function(res) {
-                    var firstGeoObject = res.geoObjects.get(0);
-
-                    myPlacemark.properties
-                        .set({
-                            // Формируем строку с данными об объекте.
-                            iconCaption: [
-                                // Название населенного пункта или вышестоящее административно-территориальное образование.
-                                firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
-                                // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
-                                firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
-                            ].filter(Boolean).join(', '),
-                            // В качестве контента балуна задаем строку с адресом объекта.
-                            balloonContent: firstGeoObject.getAddressLine()
-                        });
-                });
+        var mySearchControl = new ymaps.control.SearchControl({
+            options: {
+                noPlacemark: true
             }
         });
-    </script>
-    <script th:src="@{/js/splide.min.js}"></script>
-    <script th:src="@{/js/transitions.js}"></script>
 
+
+        var mySearchResults = new ymaps.GeoObjectCollection(null, {
+            hintContentLayout: ymaps.templateLayoutFactory.createClass('$[properties.name]')
+        });
+
+        myMap.controls.add(mySearchControl);
+        myMap.geoObjects.add(mySearchResults);
+
+        // При клике по найденному объекту метка становится красной.
+        mySearchResults.events.add('click', function (e) {
+            e.get('target').options.set('preset', 'islands#redIcon');
+        });
+
+        // Выбранный результат помещаем в коллекцию.
+
+        mySearchControl.events.add('resultselect', function (e) {
+            var index = e.get('index');
+            mySearchControl.getResult(index).then(function (res) {
+                // Удаляем предыдущую метку, если она существует
+                if (myPlacemark) {
+                    myMap.geoObjects.remove(myPlacemark);
+                }
+
+                // Создаем новую метку
+                myPlacemark = createPlacemark(res.geometry.getCoordinates());
+                myMap.geoObjects.add(myPlacemark);
+
+                // Обновляем адрес на метке
+                getAddress(res.geometry.getCoordinates());
+                menuOpen = true;
+            });
+        }).add('submit', function () {
+            mySearchResults.removeAll();
+        });
+
+        myMap.events.add('click', function (e) {
+            var coords = e.get('coords');
+
+            if (myPlacemark) {
+                myPlacemark.geometry.setCoordinates(coords);
+            }
+            // Если нет – создаем.
+            else {
+                myPlacemark = createPlacemark(coords);
+                myMap.geoObjects.add(myPlacemark);
+            }
+            getAddress(coords);
+            menuOpen = true;
+        });
+
+        // Создание метки.
+        function createPlacemark(coords) {
+
+            var placemark = new ymaps.Placemark(coords, {}, {
+                preset: 'islands#violetDotIconWithCaption',
+                draggable: true
+            });
+
+
+            ymaps.geocode(coords).then(function (res) {
+                var firstGeoObject = res.geoObjects.get(0);
+                placemark.properties.set('iconCaption', firstGeoObject.getAddressLine());
+            });
+            placemark.events.add('dragend', function (e) {
+                var newCoords = e.get('target').geometry.getCoordinates(); // Получаем новые координаты метки после перемещения
+                getAddress(newCoords);
+                menuOpen = true;// Определяем новый адрес по новым координатам
+                myMap.setCenter(newCoords); // Центрируем карту по новым координатам
+            });
+
+            return placemark;
+        }
+
+
+        function getAddress(coords) {
+            myPlacemark.properties.set('iconCaption', 'поиск...');
+            ymaps.geocode(coords).then(function (res) {
+                var firstGeoObject = res.geoObjects.get(0);
+
+                myPlacemark.properties
+                    .set({
+
+                        iconCaption: [
+                            firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+
+                            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+                        ].filter(Boolean).join(', '),
+
+                        balloonContent: firstGeoObject.getAddressLine()
+                    });
+            });
+        }
+    });
+</script>
+<script th:src="@{/js/splide.min.js}"></script>
+<script th:src="@{/js/transitions.js}"></script>
 </body>
-
 </html>

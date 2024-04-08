@@ -18,39 +18,59 @@ import java.util.Optional;
 public class EstateController {
     private final EstateRepository estateRepository;
     private final TagRepository tagRepository;
+
     public EstateController(EstateRepository estateRepository, TagRepository tagRepository) {
         this.estateRepository = estateRepository;
         this.tagRepository = tagRepository;
     }
-   //@GetMapping("/html")
-   //public String getHome(Model model) {
-   //    List<EstateModel> estates = estateRepository.findAll();
-   //    model.addAttribute("estates", estates);
-   //    return "html/mainPage";
-   //}
+
+    //@GetMapping("/html")
+    //public String getHome(Model model) {
+    //    List<EstateModel> estates = estateRepository.findAll();
+    //    model.addAttribute("estates", estates);
+    //    return "html/mainPage";
+    //}
     @GetMapping("/allEstates")
     public List<EstateModel> getAllEstates(Model model) {
-        List<EstateModel> estates = estateRepository.findAll();
-        model.addAttribute("estates", estates);
-        model.addAttribute("estatesSize", estates.size());
-        return  estateRepository.findAll();
+        try{
+            List<EstateModel> estates = estateRepository.findAll();
+            model.addAttribute("estates", estates);
+            model.addAttribute("estatesSize", estates.size());
+             
+        }
+        catch (Exception e){
+            System.out.println("Exception:" +e);
+        }
+        return estateRepository.findAll();
     }
+
     @RequestMapping("/getEstateById/{id}")
     public Optional<EstateModel> getEstateById(@PathVariable Long id) {
-            return estateRepository.findById(id);
+        return estateRepository.findById(id);
     }
-        @PostMapping("/createTag")
+
+    @PostMapping("/createTag")
     public ResponseEntity<String> createTag(@Valid @RequestBody TagModel tagModel,
-                                            BindingResult bindingResult)
-    {
-            if (bindingResult.hasErrors()){
-                StringBuilder errorMessage = new StringBuilder();
-                bindingResult.getAllErrors().forEach(error -> errorMessage.append(error.getDefaultMessage()).append("\n"));
-                return ResponseEntity.badRequest().body(errorMessage.toString());
-            }
-            else{
-               tagRepository.save(tagModel);
-                return ResponseEntity.status(HttpStatus.CREATED).body("Tag created successfully");
-            }
+                                            BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            StringBuilder errorMessage = new StringBuilder();
+            bindingResult.getAllErrors().forEach(error -> errorMessage.append(error.getDefaultMessage()).append("\n"));
+            return ResponseEntity.badRequest().body(errorMessage.toString());
+        } else {
+            tagRepository.save(tagModel);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Tag created successfully");
+        }
     }
-    }
+
+//    @RequestMapping("/createEstate")
+//    public ResponseEntity<String> createEstate(@RequestParam ("estate_type") String estateType) {
+//        if (bindingResult.hasErrors()) {
+//            StringBuilder errorMessage = new StringBuilder();
+//            bindingResult.getAllErrors().forEach(error -> errorMessage.append(error.getDefaultMessage()).append("\n"));
+//            return ResponseEntity.badRequest().body(errorMessage.toString());
+//        } else {
+//            estateRepository.save(estateModel);
+//            return ResponseEntity.status(HttpStatus.CREATED).body("Estate created successfully");
+//        }
+//    }
+}

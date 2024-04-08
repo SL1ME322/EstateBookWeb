@@ -89,5 +89,3 @@ function animate() {
 }
 container.appendChild( renderer.domElement );
 animate();
-
-

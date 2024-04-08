@@ -29,6 +29,21 @@ function showAim() {
        
     }
 }
+
+// function showEstateType(){
+//     var estate_type = document.getElementById("estate_type");
+//     estate_type.classList.toggle("visibleSt");
+//     estate_type.classList.toggle("hiddenSt");
+//     if (!estate_type.classList.contains("hiddenSt")) {
+//         estate_type.focus();
+//         // После фокусировки элемента прокрутите окно, чтобы элемент был видимым
+//         //newEstate.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'   })
+//         window.scrollTo({ behavior: 'smooth', top: 380 }
+//
+//         );
+//
+//     }
+// }
 function showPossiblePurpose() {
 
     var purpose = document.getElementById("purpose");
@@ -38,7 +53,7 @@ function showPossiblePurpose() {
         purpose.focus();
         // После фокусировки элемента прокрутите окно, чтобы элемент был видимым
         //newEstate.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'   })
-         window.scrollTo({ behavior: 'smooth', top: 380 }
+         window.scrollTo({ behavior: 'smooth', top: 650 }
  
         );
        
@@ -54,7 +69,7 @@ function showMap() {
         mapDiv.focus();
         // После фокусировки элемента прокрутите окно, чтобы элемент был видимым
         //newEstate.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'   })
-         window.scrollTo({ behavior: 'smooth', top: 650 }
+         window.scrollTo({ behavior: 'smooth', top: 700 }
  
         );
        
@@ -70,7 +85,7 @@ function showObjInfo() {
             aboutObj.focus();
             // После фокусировки элемента прокрутите окно, чтобы элемент был видимым
             //newEstate.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'   })
-             window.scrollTo({ behavior: 'smooth', top: 700 }
+             window.scrollTo({ behavior: 'smooth', top: 800 }
      
             );
            

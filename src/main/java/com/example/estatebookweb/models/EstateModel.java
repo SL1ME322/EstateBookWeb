@@ -65,6 +65,7 @@ public class EstateModel {
     @NotNull(message = "Ad Date cannot be null")
     @Column(name = "Ad_Date")
     private Date adDate;
+
     @NotNull(message = "Building Date cannot be null")
     @Column(name = "Building_Date")
     private Date buildingDate;
@@ -80,4 +81,29 @@ public class EstateModel {
     @ManyToOne
     @JoinColumn(name = "User_ID")
     private UserModel user;
+
+    @Column(name = "Renovation")
+    private String renovation;
+
+    @Column(name = "Room_Amount")
+    private Integer roomAmount;
+
+    @Column(name = "Purpose")
+    private String purpose;
+
+    @Column(name = "Possible_Purpose")
+    private String possiblePurpose;
+
+    @Column(name = "Adress")
+    private String address;
+
+    @Column(name = "Floor_Amount")
+    private Integer floorAmount;
+
+    @Column(name = "Floor")
+    private Integer floor;
+
+    @Column(name = "Entrance")
+    private String entrance;
+
 }

@@ -40,33 +40,12 @@ public class AuthController {
         this.userService = userService;
         this.authenticationManager = authenticationManager;
     }
-    //@RequestMapping(value = "/register",method = RequestMethod.POST)
-    //public String createNewUser(HttpServletRequest request,
-    //                            HttpServletResponse response, @ModelAttribute("user") UserModel user){
-    //    user.setRoles(Collections.singleton(RoleEnum.USER)  );
-    //    user.setName("Роман");
-    //    user.setSurname("Зюзин");
-    //    user.setMiddleName("Андреевич");
-    //    user.setAvatar("default_avatar.jpg");
-    //    user.setPhone("+7-915-123-125-64");
-    //    user.setLocation("г.Москва, ул. Пушкина 10");
-    //    user.setDescription("Риэлтор недвижимости; 7 лет опыта");
-    //    user.setAverageMark(4f);
-    //    user.setRegistrationDate(new Date());
-    //    userService.createUser(user);
-    //    Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getLogin(),user.getPassword()));
-    //    SecurityContext securityContext = SecurityContextHolder.getContext();
-    //    securityContext.setAuthentication(authentication);
-    //    HttpSession session = request.getSession(true);
-    //    session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,securityContext);
-    //    return "redirect:/login";
-    //}
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String createNewUser(@RequestBody UserModel user) {
-
-        user.setRoles(Collections.singleton(RoleEnum.USER));
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String createNewUser(HttpServletRequest request,
+                                HttpServletResponse response, @ModelAttribute("user") UserModel user){
+        user.setRoles(Collections.singleton(RoleEnum.USER)  );
         user.setName("Роман");
-        user.setSurname("Андреев");
+        user.setSurname("Зюзин");
         user.setMiddleName("Андреевич");
         user.setAvatar("default_avatar.jpg");
         user.setPhone("+7-915-123-125-64");
@@ -75,8 +54,29 @@ public class AuthController {
         user.setAverageMark(4f);
         user.setRegistrationDate(new Date());
         userService.createUser(user);
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getLogin(),user.getPassword()));
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        securityContext.setAuthentication(authentication);
+        HttpSession session = request.getSession(true);
+        session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,securityContext);
         return "redirect:/login";
     }
+//    @RequestMapping(value = "/register", method = RequestMethod.POST)
+//    public String createNewUser(@RequestBody UserModel user) {
+//
+//        user.setRoles(Collections.singleton(RoleEnum.USER));
+//        user.setName("Роман");
+//        user.setSurname("Андреев");
+//        user.setMiddleName("Андреевич");
+//        user.setAvatar("default_avatar.jpg");
+//        user.setPhone("+7-915-123-125-64");
+//        user.setLocation("г.Москва, ул. Пушкина 10");
+//        user.setDescription("Риэлтор недвижимости; 7 лет опыта");
+//        user.setAverageMark(4f);
+//        user.setRegistrationDate(new Date());
+//        userService.createUser(user);
+//        return "redirect:/login";
+//    }
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login() {
         return "html/login";
