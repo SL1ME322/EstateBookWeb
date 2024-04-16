@@ -9,12 +9,10 @@ EXPOSE 8080
 ENTRYPOINT ["java","-jar","/demo.jar"]
 
 
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/mssql/server:2019-latest AS sql-server
 ENV ACCEPT_EULA=Y
 ENV MSSQL_PID=Express
 ENV MSSQL_DATABASE=EstateBookFinal
-
 # Включение аутентификации Windows
 ENV MSSQL_ENABLE_MSAUTHENTICATION=true
-
 COPY init.sql /docker-entrypoint-initdb.d/

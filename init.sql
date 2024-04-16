@@ -237,7 +237,7 @@ create  table [dbo].[Estate]
 );
 go
 
- BACKUP DATABASE [ ] TO DISK='{@"C:\Users\Honor\source\repos\Admin_Estate_Book\Backups\MyDatabaseBackup.bak"}'
+
 
 INSERT INTO [dbo].[Estate] (
     [Ad_Name],
@@ -795,18 +795,9 @@ create table [dbo].[User_History_Watched] (
 select * from [Estate]
     go
 
-delete
 
-create procedure Add_To_User_History (
-    @User_ID int,
-    @Name VARCHAR(255)
 
-)
-    as
-begin
-insert into [dbo].[User_History_Watched]([Estate_ID],[User_ID])
-values (@User_ID, @Name);
-END;
+
 
 select * from EstateView;
 select * from [dbo].[User];
