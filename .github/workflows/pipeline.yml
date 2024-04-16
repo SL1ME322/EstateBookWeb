@@ -1,4 +1,4 @@
-name: SpringBoot
+name: SpringBoot Check Style
 on:
   push:
     branches:
@@ -8,15 +8,18 @@ on:
       - pipebranch
 jobs:
   checkstyle:
-    name: CompileTest
+    name: Checkstyle Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
       - name: Set up  JDK
         uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Build Maven
-        run: mvn -B package --file pom.xml
+      - name: Download Checkstyle
+        run: wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.45/checkstyle-8.45-all.jar -O checkstyle.jar
+      - name: Run Checkstyle
+        run: java -jar checkstyle.jar -c checkstyle.xml src/main/java

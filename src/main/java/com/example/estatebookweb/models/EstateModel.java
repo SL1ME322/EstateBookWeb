@@ -16,7 +16,6 @@ import java.util.Date;
 @Entity
 @Table(name = "Estate")
 public class EstateModel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_Estate")

@@ -58,7 +58,6 @@ public class mainController {
         else{
             return "redirect:/login";
         }
-
     }
     @GetMapping("/reviewsPage")
     public String reviews_page(Model model) {

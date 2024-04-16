@@ -37,14 +37,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/login**","/logout**", "/register**").permitAll()
 //              //   .requ  estMatchers("/admin/**").hasRole("ADMIN")
-                 .requestMatchers("/**").hasRole("USER")
+               //  .requestMatchers("/**").hasRole("USER")
 //              //  .requestMatchers("/estates/user/**", "/estates/user/").hasRole("USER")
 //              //  .requestMatchers("/estates/userAndAdmin/**").hasAnyRole("EMPLOYEE", "ADMIN")
                 .anyRequest()
                 .authenticated();
-
-
-
         httpSecurity.formLogin().loginPage("/login").defaultSuccessUrl("/html").permitAll() ;
         return httpSecurity.build();
     }
